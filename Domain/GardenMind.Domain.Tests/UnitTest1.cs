@@ -2,9 +2,11 @@
 {
     public class Tests
     {
+        private Class1 _sut;
         [SetUp]
         public void Setup()
         {
+            _sut = new Class1();
         }
 
         [Test]
