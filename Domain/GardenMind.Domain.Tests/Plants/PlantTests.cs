@@ -1,14 +1,16 @@
 ﻿using Bogus;
 using FluentAssertions;
+using GardenMind.Domain.Plants;
+using GardenMind.Domain.Plants.Events.Details;
 using GardenMind.Domain.Seasons;
 using GardenMind.Domain.Seasons.Exceptions;
 
-namespace GardenMind.Domain.Tests;
+namespace GardenMind.Domain.Tests.Plants;
 
 public class PlantTests
 {
     private static Faker faker = new Faker();
-    private Guid tag = Guid.NewGuid();
+    private Guid tag = Guid.Empty;
     private Species species = null;
     private Season season = null;
 
@@ -85,6 +87,24 @@ public class PlantTests
         plant.Species.Should().Be(species);
         plant.PlantedAt.Should().NotBe(DateTime.MinValue);
         plant.Genus.Should().Be(genus);
+    }
+
+    [Test]
+    public void An_Event_Is_Created_Along_With_The_Plant()
+    {
+        // given
+        var plantedAt = DateTime.Now;
+        var genus = faker.Name.FirstName();
+
+        // when
+        var plant = Plant.Create(tag, season, species, plantedAt, genus);
+
+        // then
+        var plantedEvent = plant.Events.First();
+        var details = plantedEvent.Details;
+        details.Should().BeOfType<PlantedEventDetails>();
+        plantedEvent.Type.Should().Be(Domain.Plants.Events.EventType.Planted);
+        details.Type.Should().Be(Domain.Plants.Events.EventType.Planted);
     }
 
     public static IEnumerable<DateTime> ValidPlantedAtDates()

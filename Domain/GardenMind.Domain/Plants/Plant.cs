@@ -1,7 +1,8 @@
-﻿using GardenMind.Domain.Seasons;
+﻿using GardenMind.Domain.Plants.Events;
+using GardenMind.Domain.Seasons;
 using GardenMind.Domain.Seasons.Exceptions;
 
-namespace GardenMind.Domain
+namespace GardenMind.Domain.Plants
 {
     public class Plant
     {
@@ -11,6 +12,9 @@ namespace GardenMind.Domain
         public DateTime PlantedAt { get; init; }
         public Species Species { get; init; } = default;
         public string? Genus { get; init; }
+
+        private List<PlantEvent> _plantEvents = [];
+        public IReadOnlyList<PlantEvent> Events => _plantEvents;
 
         private Plant()
         {
@@ -51,6 +55,9 @@ namespace GardenMind.Domain
                 Season = season,
                 Species = species
             };
+
+            var plantedEvent = PlantEvent.CreatePlantedEvent(plantedAt, photoUri);
+            plant._plantEvents.Add(plantedEvent);
 
             return plant;
         }
