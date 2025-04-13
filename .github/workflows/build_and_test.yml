@@ -26,10 +26,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --logger "trx;LogFileName=reports/test-results.trx"
-    - name: TestReport
-      uses: dorny/test-reporter@v2
-      if: success() || failure()    # run this step even if previous step failed
-      with:
-        name: NUnit Tests           # Name of the check run which will be created
-        path: ./*/reports/test-results.trx    # Path to test results
-        reporter: dotnet-trx        # Format of test results
+    # - name: TestReport
+    #   uses: dorny/test-reporter@v2
+    #   if: success() || failure()    # run this step even if previous step failed
+    #   with:
+    #     name: NUnit Tests           # Name of the check run which will be created
+    #     path: ./*/reports/test-results.trx    # Path to test results
+    #     reporter: dotnet-trx        # Format of test results
