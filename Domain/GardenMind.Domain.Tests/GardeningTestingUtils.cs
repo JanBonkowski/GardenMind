@@ -59,6 +59,6 @@ public class GardeningTestingUtils
         var species = NewSpecies();
         var season = NewPlannedSeason();
 
-        return Plant.Create(tag, season, species, DateTime.Now);
+        return Plant.Create(tag, season, species, DateTime.UtcNow);
     }
 }

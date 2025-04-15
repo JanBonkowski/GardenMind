@@ -41,7 +41,7 @@ public class SeasonTests
         // then
         season.Started().Should().BeTrue();
         season.Status.Should().Be(SeasonStatus.Started);
-        season.StartedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromSeconds(10));
+        season.StartedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(10));
         season.TerminatedAt.Should().BeNull();
     }
 
@@ -116,6 +116,6 @@ public class SeasonTests
         season.Terminated().Should().BeTrue();
         season.Status.Should().Be(SeasonStatus.Terminated);
         season.StartedAt.Should().NotBeNull();
-        season.TerminatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromSeconds(10));
+        season.TerminatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(10));
     }
 }
