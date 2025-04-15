@@ -1,4 +1,5 @@
 ﻿using GardenMind.Domain;
+using GardenMind.Domain.Plants;
 using GardenMind.Domain.Seasons;
 using GardenMind.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ namespace GardenMind.Persistence;
 
 public class GardenDbContext : DbContext
 {
+    public DbSet<Plant> Plants { get; set; }
     public DbSet<Season> Seasons { get; set; }
     public DbSet<Species> Species { get; set; }
 
@@ -24,5 +26,6 @@ public class GardenDbContext : DbContext
 
         modelBuilder.ApplyConfiguration(new SpeciesConfiguration());
         modelBuilder.ApplyConfiguration(new SeasonConfiguration());
+        modelBuilder.ApplyConfiguration(new PlantConfiguration());
     }
 }
