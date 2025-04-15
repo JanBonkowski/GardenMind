@@ -15,7 +15,7 @@ public partial class Season
 
     public static Season Create()
     {
-        return new Season() { CreatedAt = DateTime.UtcNow };
+        return new Season() { CreatedAt = DateTime.Now };
     }
 
     public void Start()
@@ -30,7 +30,7 @@ public partial class Season
             throw new SeasonAlreadyTerminatedException();
         }
 
-        StartedAt = DateTime.UtcNow;
+        StartedAt = DateTime.Now;
     }
 
     public bool Started() => StartedAt.HasValue && !TerminatedAt.HasValue;
@@ -50,7 +50,7 @@ public partial class Season
         }
 
 
-        TerminatedAt = DateTime.UtcNow;
+        TerminatedAt = DateTime.Now;
     }
 
     internal void AddPlant(Plant plant)

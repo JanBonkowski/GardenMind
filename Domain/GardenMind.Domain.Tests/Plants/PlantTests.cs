@@ -29,7 +29,7 @@ public class PlantTests
         var tag = Guid.Empty;
 
         // when
-        Action createPlant = () => Plant.Create(tag, season, species, DateTime.UtcNow);
+        Action createPlant = () => Plant.Create(tag, season, species, DateTime.Now);
 
         // then
         createPlant.Should().Throw<ArgumentNullException>();
@@ -52,7 +52,7 @@ public class PlantTests
         var alreadyTerminatedSeason = GardeningTestingUtils.NewTerminatedSeason();
 
         // when
-        Action createPlant = () => Plant.Create(tag, alreadyTerminatedSeason, species, DateTime.UtcNow);
+        Action createPlant = () => Plant.Create(tag, alreadyTerminatedSeason, species, DateTime.Now);
 
         // then
         createPlant.Should().Throw<SeasonAlreadyTerminatedException>();
@@ -79,7 +79,7 @@ public class PlantTests
         var genus = faker.Name.FirstName();
 
         // when
-        var plant = Plant.Create(tag, season, species, DateTime.UtcNow, genus);
+        var plant = Plant.Create(tag, season, species, DateTime.Now, genus);
 
         // then
         plant.Tag.Should().Be(tag);
@@ -93,7 +93,7 @@ public class PlantTests
     public void An_Event_Is_Created_Along_With_The_Plant()
     {
         // given
-        var plantedAt = DateTime.UtcNow;
+        var plantedAt = DateTime.Now;
         var genus = faker.Name.FirstName();
 
         // when
@@ -109,7 +109,7 @@ public class PlantTests
 
     public static IEnumerable<DateTime> ValidPlantedAtDates()
     {
-        yield return DateTime.UtcNow;
-        yield return DateTime.UtcNow.AddDays(31);
+        yield return DateTime.Now;
+        yield return DateTime.Now.AddDays(31);
     }
 }
