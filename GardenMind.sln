@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Domain.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Domain", "Domain\GardenMind.Domain\GardenMind.Domain.csproj", "{7B6808EA-74DD-4B34-B91D-7DCB0B62CCF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Persistence", "GardenMind.Persistence\GardenMind.Persistence.csproj", "{950A578D-DA52-4DE3-BA6A-563F568555CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{7B6808EA-74DD-4B34-B91D-7DCB0B62CCF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B6808EA-74DD-4B34-B91D-7DCB0B62CCF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B6808EA-74DD-4B34-B91D-7DCB0B62CCF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
