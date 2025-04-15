@@ -12,8 +12,11 @@ public class PlantedEventTests
     [Test]
     public void PlantedEvent_Can_Not_Be_Created_With_Default_CreatedAt()
     {
+        // given
+        var plant = GardeningTestingUtils.NewPlant();
+
         // when
-        Action createPlantEvent = () => PlantEvent.CreatePlantedEvent(DateTime.MinValue, null);
+        Action createPlantEvent = () => PlantEvent.CreatePlantedEvent(DateTime.MinValue, plant, null);
 
         // then
         createPlantEvent.Should().Throw<ArgumentOutOfRangeException>();
@@ -23,8 +26,11 @@ public class PlantedEventTests
     [TestCaseSource(nameof(PhotoUriSource))]
     public void PlantedEvent_Has_Valid_Details(string? photoUri)
     {
+        // given
+        var plant = GardeningTestingUtils.NewPlant();
+
         // when
-        var plantedEvent = PlantEvent.CreatePlantedEvent(DateTime.Now, photoUri);
+        var plantedEvent = PlantEvent.CreatePlantedEvent(DateTime.Now, plant, photoUri);
 
         // then
         plantedEvent.CreatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromSeconds(30));

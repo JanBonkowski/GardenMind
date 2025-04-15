@@ -11,16 +11,11 @@ internal class SeasonConfiguration : IEntityTypeConfiguration<Season>
         builder.ToTable("Seasons");
 
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Status)
-            .HasConversion(
-                x => x.ToString(),
-                x => Enum.Parse<SeasonStatus>(x))
-            .IsRequired();
         builder.Property(x => x.StartedAt).IsRequired(false);
         builder.Property(x => x.CreatedAt).IsRequired();
         builder.Property(x => x.TerminatedAt).IsRequired(false);
 
-        builder.HasMany(x => x.Plants).WithOne(x => x.Season).HasForeignKey(x => x.Id)
+        builder.HasMany(x => x.Plants).WithOne(x => x.Season)
             .Metadata.DependentToPrincipal.SetPropertyAccessMode(PropertyAccessMode.Field);
     }
 }

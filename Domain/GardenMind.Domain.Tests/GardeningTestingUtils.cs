@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using GardenMind.Domain.Plants;
 using GardenMind.Domain.Seasons;
 
 namespace GardenMind.Domain.Tests;
@@ -50,5 +51,14 @@ public class GardeningTestingUtils
                 }
         }
         return season;
+    }
+
+    public static Plant NewPlant()
+    {
+        var tag = Guid.NewGuid();
+        var species = NewSpecies();
+        var season = NewPlannedSeason();
+
+        return Plant.Create(tag, season, species, DateTime.Now);
     }
 }
