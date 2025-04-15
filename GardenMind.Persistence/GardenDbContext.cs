@@ -27,5 +27,6 @@ public class GardenDbContext : DbContext
         modelBuilder.ApplyConfiguration(new SpeciesConfiguration());
         modelBuilder.ApplyConfiguration(new SeasonConfiguration());
         modelBuilder.ApplyConfiguration(new PlantConfiguration());
+        modelBuilder.ApplyConfiguration(new PlantEventConfiguration());
     }
 }
