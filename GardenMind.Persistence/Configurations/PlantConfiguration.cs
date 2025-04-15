@@ -1,5 +1,4 @@
 ﻿using GardenMind.Domain.Plants;
-using GardenMind.Domain.Plants.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,7 +19,7 @@ internal class PlantConfiguration : IEntityTypeConfiguration<Plant>
         builder.HasOne(x => x.Species).WithMany().IsRequired();
         builder.HasOne(x => x.Season).WithMany(x => x.Plants).IsRequired();
 
-        builder.HasMany(x => x.Events).WithOne("PlantId")
+        builder.HasMany(x => x.Events).WithOne(x => x.Plant)
             .Metadata.DependentToPrincipal.SetPropertyAccessMode(PropertyAccessMode.Field);
     }
 }
