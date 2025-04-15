@@ -2,7 +2,7 @@
 
 public record PlantedEventDetails : EventDetails
 {
-    private PlantedEventDetails() : base(EventType.Planted, DateTime.Now, null)
+    private PlantedEventDetails() : base(EventType.Planted, DateTime.UtcNow, null)
     {
     }
 

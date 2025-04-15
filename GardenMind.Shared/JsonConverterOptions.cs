@@ -6,8 +6,9 @@ namespace GardenMind.Shared
     {
         public static JsonSerializerOptions JsonSerializerOptions => new JsonSerializerOptions
         {
-            MaxDepth = 1,
-            PreferredObjectCreationHandling = System.Text.Json.Serialization.JsonObjectCreationHandling.Populate
+            MaxDepth = 3,
+            ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles,
+            PreferredObjectCreationHandling = System.Text.Json.Serialization.JsonObjectCreationHandling.Replace
         };
     }
 }

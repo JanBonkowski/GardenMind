@@ -30,10 +30,10 @@ public class PlantedEventTests
         var plant = GardeningTestingUtils.NewPlant();
 
         // when
-        var plantedEvent = PlantEvent.CreatePlantedEvent(DateTime.Now, plant, photoUri);
+        var plantedEvent = PlantEvent.CreatePlantedEvent(DateTime.UtcNow, plant, photoUri);
 
         // then
-        plantedEvent.CreatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromSeconds(30));
+        plantedEvent.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(30));
         plantedEvent.Type.Should().Be(EventType.Planted);
         plantedEvent.Details.Should().BeOfType<PlantedEventDetails>();
         plantedEvent.Details.CreatedAt.Should().Be(plantedEvent.CreatedAt);
