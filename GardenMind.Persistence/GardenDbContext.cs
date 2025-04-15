@@ -12,7 +12,7 @@ public class GardenDbContext : DbContext
     public DbSet<Season> Seasons { get; set; }
     public DbSet<Species> Species { get; set; }
 
-    public GardenDbContext(DbContextOptions options) : base(options)
+    public GardenDbContext(DbContextOptions<GardenDbContext> options) : base(options)
     {
     }
 
