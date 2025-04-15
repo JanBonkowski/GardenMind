@@ -57,7 +57,7 @@ namespace GardenMind.Domain.Plants
                 Species = species
             };
 
-            var plantedEvent = PlantEvent.CreatePlantedEvent(plantedAt, photoUri);
+            var plantedEvent = PlantEvent.CreatePlantedEvent(plantedAt, plant, photoUri);
             plant._plantEvents.Add(plantedEvent);
 
             season.AddPlant(plant);

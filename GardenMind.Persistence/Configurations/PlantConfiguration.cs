@@ -1,4 +1,5 @@
 ﻿using GardenMind.Domain.Plants;
+using GardenMind.Domain.Plants.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
