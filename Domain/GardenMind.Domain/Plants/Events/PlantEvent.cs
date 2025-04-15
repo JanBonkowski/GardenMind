@@ -7,7 +7,7 @@ public class PlantEvent
     public int Id { get; private set; }
     public EventType Type { get; private set; }
     public DateTime CreatedAt { get; private set; }
-    public EventDetails? Details { get; private set; }
+    public EventDetails Details { get; private set; } = null!;
     public Plant? Plant { get; private set; }
 
     private PlantEvent()
