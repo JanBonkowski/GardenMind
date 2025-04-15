@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\GardenMind.Domain\GardenMind.Domain.csproj" />
+    <ProjectReference Include="..\GardenMind.Shared\GardenMind.Shared.csproj" />
   </ItemGroup>
 
 </Project>

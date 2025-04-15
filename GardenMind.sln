@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Domain", "Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Persistence", "GardenMind.Persistence\GardenMind.Persistence.csproj", "{950A578D-DA52-4DE3-BA6A-563F568555CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Shared", "GardenMind.Shared\GardenMind.Shared.csproj", "{1493C513-FC0B-4965-8DBE-04EDB36534C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{950A578D-DA52-4DE3-BA6A-563F568555CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
