@@ -1,4 +1,5 @@
-﻿using GardenMind.Domain.Plants.Events;
+﻿using System.Runtime.CompilerServices;
+using GardenMind.Domain.Plants.Events;
 using GardenMind.Domain.Seasons;
 using GardenMind.Domain.Seasons.Exceptions;
 
@@ -58,6 +59,8 @@ namespace GardenMind.Domain.Plants
 
             var plantedEvent = PlantEvent.CreatePlantedEvent(plantedAt, photoUri);
             plant._plantEvents.Add(plantedEvent);
+
+            season.AddPlant(plant);
 
             return plant;
         }
