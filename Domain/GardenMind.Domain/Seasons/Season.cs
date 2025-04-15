@@ -1,4 +1,5 @@
-﻿using GardenMind.Domain.Seasons.Exceptions;
+﻿using GardenMind.Domain.Plants;
+using GardenMind.Domain.Seasons.Exceptions;
 
 namespace GardenMind.Domain.Seasons;
 
@@ -8,6 +9,9 @@ public partial class Season
     public DateTime CreatedAt { get; private set; }
     public DateTime? StartedAt { get; private set; }
     public DateTime? TerminatedAt { get; private set; }
+
+    private HashSet<Plant> _plants = [];
+    public IReadOnlySet<Plant> Plants { get => _plants; }
 
     public static Season Create()
     {
@@ -47,6 +51,16 @@ public partial class Season
 
 
         TerminatedAt = DateTime.Now;
+    }
+
+    internal void AddPlant(Plant plant)
+    {
+        if (Terminated())
+        {
+            throw new SeasonAlreadyTerminatedException();
+        }
+
+        _plants.Add(plant);
     }
 
     public SeasonStatus Status
