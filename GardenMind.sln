@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Persistence", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Shared", "GardenMind.Shared\GardenMind.Shared.csproj", "{1493C513-FC0B-4965-8DBE-04EDB36534C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.API", "API\GardenMind.API\GardenMind.API.csproj", "{48EB346E-17BE-4C2E-867E-0F1D64420744}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{52CE4012-ACF9-484A-AB6A-83A065E5D752}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1493C513-FC0B-4965-8DBE-04EDB36534C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EB346E-17BE-4C2E-867E-0F1D64420744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EB346E-17BE-4C2E-867E-0F1D64420744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EB346E-17BE-4C2E-867E-0F1D64420744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EB346E-17BE-4C2E-867E-0F1D64420744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{62086956-CEB2-4656-9CB0-7BF3A0C6B28E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{7B6808EA-74DD-4B34-B91D-7DCB0B62CCF3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{48EB346E-17BE-4C2E-867E-0F1D64420744} = {52CE4012-ACF9-484A-AB6A-83A065E5D752}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CED7A83-B10A-4C99-93D3-DC9CF5C7307F}
