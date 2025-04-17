@@ -1,6 +1,6 @@
 @GardenMind.API_HostAddress = http://localhost:5048
 
-GET {{GardenMind.API_HostAddress}}/
+GET {{GardenMind.API_HostAddress}}/api/species
 Accept: application/json
 
 ###

@@ -1,5 +1,6 @@
 ﻿using GardenMind.Services.Species;
 using GardenMind.Services.Species.Models;
+using GardenMind.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GardenMind.API.Controllers
@@ -18,10 +19,10 @@ namespace GardenMind.API.Controllers
         }
 
         [HttpGet]
-        public async Task<SpeciesListResponse> GetSpeciesList(CancellationToken cancellationToken)
+        public async Task<Page<SpeciesListItem>> GetSpeciesList(PageRequest page, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Attempting to retrieve list of species in application");
-            return await _querySpecies.GetAll(cancellationToken);
+            return await _querySpecies.GetAll(page, cancellationToken);
         }
     }
 }
