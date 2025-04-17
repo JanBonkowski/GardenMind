@@ -1,4 +1,5 @@
 using GardenMind.Persistence;
+using GardenMind.Services.Species;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Npgsql;
@@ -31,6 +32,8 @@ builder.Services.AddDbContext<GardenDbContext>((services, ctx) =>
     };
     ctx.UseNpgsql(connectionStringBuilder.ConnectionString);
 });
+
+builder.Services.AddScoped<QuerySpecies>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
