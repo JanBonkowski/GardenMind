@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\GardenMind.Persistence\GardenMind.Persistence.csproj" />
+    <ProjectReference Include="..\..\Services\GardenMind.Services\GardenMind.Services.csproj" />
   </ItemGroup>
 
 </Project>

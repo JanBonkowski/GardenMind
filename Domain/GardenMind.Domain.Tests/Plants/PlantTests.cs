@@ -4,6 +4,7 @@ using GardenMind.Domain.Plants;
 using GardenMind.Domain.Plants.Events.Details;
 using GardenMind.Domain.Seasons;
 using GardenMind.Domain.Seasons.Exceptions;
+using GardenMind.SharedTest;
 
 namespace GardenMind.Domain.Tests.Plants;
 
@@ -18,7 +19,7 @@ public class PlantTests
     public void SetUp()
     {
         tag = Guid.NewGuid();
-        species = GardeningTestingUtils.NewSpecies();
+        species = SpeciesTestingUtils.NewSpecies();
         season = GardeningTestingUtils.NewPlannedSeason();
     }
 

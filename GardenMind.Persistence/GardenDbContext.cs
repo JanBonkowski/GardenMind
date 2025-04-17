@@ -8,9 +8,9 @@ namespace GardenMind.Persistence;
 
 public class GardenDbContext : DbContext
 {
-    public DbSet<Plant> Plants { get; set; }
-    public DbSet<Season> Seasons { get; set; }
-    public DbSet<Species> Species { get; set; }
+    public virtual DbSet<Plant> Plants { get; set; }
+    public virtual DbSet<Season> Seasons { get; set; }
+    public virtual DbSet<Species> Species { get; set; }
 
     public GardenDbContext(DbContextOptions<GardenDbContext> options) : base(options)
     {
