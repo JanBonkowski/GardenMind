@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GardenMind.SharedTest\GardenMind.SharedTest.csproj" />
     <ProjectReference Include="..\GardenMind.Domain\GardenMind.Domain.csproj" />
   </ItemGroup>
 
