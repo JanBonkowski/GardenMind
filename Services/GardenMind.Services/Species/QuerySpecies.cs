@@ -13,7 +13,7 @@ public class QuerySpecies
         _ctx = ctx;
     }
 
-    public async Task<SpeciesListResponse> GetAll(CancellationToken cancellationToken)
+    public async Task<SpeciesListResponse> GetAll(CancellationToken cancellationToken = default)
     {
         var result = await _ctx.Species.ToListAsync(cancellationToken);
         var mappedResults = result.Select(SpeciesListItem.From);
