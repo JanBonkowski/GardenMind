@@ -1,14 +1,19 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace GardenMind.Shared
 {
     public class JsonConverterOptions
     {
-        public static JsonSerializerOptions JsonSerializerOptions => new JsonSerializerOptions
+        public static JsonSerializerOptions JsonSerializerOptions => new()
         {
             MaxDepth = 3,
-            ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles,
-            PreferredObjectCreationHandling = System.Text.Json.Serialization.JsonObjectCreationHandling.Replace
+            ReferenceHandler = ReferenceHandler.IgnoreCycles,
+            PreferredObjectCreationHandling = JsonObjectCreationHandling.Replace,
+            Converters =
+            {
+                new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)
+            }
         };
     }
 }

@@ -2,6 +2,7 @@
 using FluentAssertions;
 using GardenMind.Domain.Plants.Events;
 using GardenMind.Domain.Plants.Events.Details;
+using GardenMind.SharedTest;
 
 namespace GardenMind.Domain.Tests.Plants.Events;
 
