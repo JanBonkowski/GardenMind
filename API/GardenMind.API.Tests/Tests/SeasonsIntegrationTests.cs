@@ -1,6 +1,4 @@
 ﻿using GardenMind.Services.Seasons.Models;
-using GardenMind.Services.Species.Models;
-using GardenMind.Shared.Models;
 using NUnit.Framework;
 
 namespace GardenMind.API.Tests.Tests
