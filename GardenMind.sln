@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.Services.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.SharedTest", "GardenMind.SharedTest\GardenMind.SharedTest.csproj", "{32B4FBC4-FE13-424D-8500-84E0C99A1DC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenMind.API.Tests", "API\GardenMind.API.Tests\GardenMind.API.Tests.csproj", "{4557B596-C2A3-4C0B-A7E2-7AF62672A75F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{32B4FBC4-FE13-424D-8500-84E0C99A1DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32B4FBC4-FE13-424D-8500-84E0C99A1DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32B4FBC4-FE13-424D-8500-84E0C99A1DC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4557B596-C2A3-4C0B-A7E2-7AF62672A75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4557B596-C2A3-4C0B-A7E2-7AF62672A75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4557B596-C2A3-4C0B-A7E2-7AF62672A75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4557B596-C2A3-4C0B-A7E2-7AF62672A75F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{48EB346E-17BE-4C2E-867E-0F1D64420744} = {52CE4012-ACF9-484A-AB6A-83A065E5D752}
 		{154FB6AF-ADA8-4F3D-A0A8-D3D818880E19} = {F6B32426-8306-41B9-91EB-C86DE346B90B}
 		{0582C065-4A68-4866-9F84-F7F00248917F} = {F6B32426-8306-41B9-91EB-C86DE346B90B}
+		{4557B596-C2A3-4C0B-A7E2-7AF62672A75F} = {52CE4012-ACF9-484A-AB6A-83A065E5D752}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CED7A83-B10A-4C99-93D3-DC9CF5C7307F}

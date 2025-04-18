@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -23,5 +23,7 @@
     <ProjectReference Include="..\..\GardenMind.Persistence\GardenMind.Persistence.csproj" />
     <ProjectReference Include="..\..\Services\GardenMind.Services\GardenMind.Services.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+	  <InternalsVisibleTo Include="GardenMind.API.Tests" />	
+  </ItemGroup>
 </Project>
