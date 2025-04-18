@@ -11,11 +11,16 @@ namespace GardenMind.API.Controllers
     {
         private readonly ILogger<SpeciesController> _logger;
         private readonly QuerySpecies _querySpecies;
+        private readonly SpeciesCreator _speciesCreator;
 
-        public SpeciesController(ILogger<SpeciesController> logger, QuerySpecies querySpecies)
+        public SpeciesController(
+            ILogger<SpeciesController> logger, 
+            QuerySpecies querySpecies,
+            SpeciesCreator speciesCreator)
         {
             _logger = logger;
             _querySpecies = querySpecies;
+            _speciesCreator = speciesCreator;
         }
 
         [HttpGet]
@@ -23,6 +28,15 @@ namespace GardenMind.API.Controllers
         {
             _logger.LogInformation("Attempting to retrieve list of species in application");
             return await _querySpecies.GetAll(page, cancellationToken);
+        }
+
+        [HttpPost]
+        public async Task<CreatedResult> CreateSpecies([FromBody]CreateSpeciesRequest request, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Attempting to create a new species");
+            var newSpeciesId = await _speciesCreator.Create(request, cancellationToken);
+
+            return Created("/", newSpeciesId);
         }
     }
 }
