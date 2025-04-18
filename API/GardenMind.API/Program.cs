@@ -1,4 +1,5 @@
 using GardenMind.Persistence;
+using GardenMind.Services.Seasons;
 using GardenMind.Services.Species;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -35,6 +36,7 @@ builder.Services.AddDbContext<GardenDbContext>((services, ctx) =>
 
 builder.Services.AddScoped<QuerySpecies>();
 builder.Services.AddScoped<SpeciesCreator>();
+builder.Services.AddScoped<SeasonCreator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
