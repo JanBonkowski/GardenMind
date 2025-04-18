@@ -1,7 +1,5 @@
-﻿using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using GardenMind.Services.Species.Models;
 using GardenMind.Shared.Models;
-using Microsoft.AspNetCore.Mvc.Testing;
 using NUnit.Framework;
 
 namespace GardenMind.API.Tests.Tests
@@ -11,12 +9,21 @@ namespace GardenMind.API.Tests.Tests
         [TestCaseSource(nameof(PageQueryStringGenerator))]
         public async Task ListSpecies(string? queryString)
         {
+            // when
+            var response = await Client.GetAsync($"api/species{queryString}");
+
+            // then
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Test]
+        public async Task CreateNewSpecies()
+        {
             //given
-            var client = Client;
-            client.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+            var request = new CreateSpeciesRequest("Capsicum Annuum");
 
             // when
-            var response = await client.GetAsync($"api/species{queryString}");
+            var response = await Client.PostAsJsonAsync($"api/species", request);
 
             // then
             response.EnsureSuccessStatusCode();
@@ -24,7 +31,6 @@ namespace GardenMind.API.Tests.Tests
 
         private static IEnumerable<string?> PageQueryStringGenerator()
         {
-
             yield return QueryString.Create(
             [
                 new KeyValuePair<string, string?>(nameof(PageRequest.PageNumber), "0"),
