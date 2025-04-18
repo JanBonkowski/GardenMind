@@ -19,7 +19,7 @@ namespace GardenMind.API.Controllers
         }
 
         [HttpGet]
-        public async Task<Page<SpeciesListItem>> GetSpeciesList(PageRequest page, CancellationToken cancellationToken)
+        public async Task<Page<SpeciesListItem>> GetSpeciesList([FromQuery]PageRequest page, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Attempting to retrieve list of species in application");
             return await _querySpecies.GetAll(page, cancellationToken);

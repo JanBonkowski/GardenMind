@@ -41,21 +41,17 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-app.MapGet("/", async (GardenDbContext ctx) =>
-{
-    return await ctx.Species.ToListAsync();
-});
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+public partial class Program { }
