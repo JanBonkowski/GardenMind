@@ -1,13 +1,9 @@
-﻿using Bogus;
-using GardenMind.Domain.Plants;
-using GardenMind.Domain.Seasons;
+﻿using GardenMind.Domain.Seasons;
 
 namespace GardenMind.SharedTest;
 
-public class GardeningTestingUtils
+public class SeasonsTestingUtils
 {
-    private static Faker faker = new Faker();
-
     public static Season NewPlannedSeason()
     {
         return NewSeason(SeasonStatus.Planned);
@@ -41,14 +37,5 @@ public class GardeningTestingUtils
                 }
         }
         return season;
-    }
-
-    public static Plant NewPlant()
-    {
-        var tag = Guid.NewGuid();
-        var species = SpeciesTestingUtils.NewSpecies();
-        var season = NewPlannedSeason();
-
-        return Plant.Create(tag, season, species, DateTime.UtcNow);
     }
 }

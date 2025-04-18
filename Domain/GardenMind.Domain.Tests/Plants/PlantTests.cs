@@ -20,7 +20,7 @@ public class PlantTests
     {
         tag = Guid.NewGuid();
         species = SpeciesTestingUtils.NewSpecies();
-        season = GardeningTestingUtils.NewPlannedSeason();
+        season = SeasonsTestingUtils.NewPlannedSeason();
     }
 
     [Test]
@@ -50,7 +50,7 @@ public class PlantTests
     public void Plant_Can_Not_Be_Created_After_Season_Terminated()
     {
         // given
-        var alreadyTerminatedSeason = GardeningTestingUtils.NewTerminatedSeason();
+        var alreadyTerminatedSeason = SeasonsTestingUtils.NewTerminatedSeason();
 
         // when
         Action createPlant = () => Plant.Create(tag, alreadyTerminatedSeason, species, DateTime.UtcNow);

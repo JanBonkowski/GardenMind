@@ -14,7 +14,7 @@ public class PlantedEventTests
     public void PlantedEvent_Can_Not_Be_Created_With_Default_CreatedAt()
     {
         // given
-        var plant = GardeningTestingUtils.NewPlant();
+        var plant = PlantsTestingUtils.NewPlant();
 
         // when
         Action createPlantEvent = () => PlantEvent.CreatePlantedEvent(DateTime.MinValue, plant, null);
@@ -28,7 +28,7 @@ public class PlantedEventTests
     public void PlantedEvent_Has_Valid_Details(string? photoUri)
     {
         // given
-        var plant = GardeningTestingUtils.NewPlant();
+        var plant = PlantsTestingUtils.NewPlant();
 
         // when
         var plantedEvent = PlantEvent.CreatePlantedEvent(DateTime.UtcNow, plant, photoUri);

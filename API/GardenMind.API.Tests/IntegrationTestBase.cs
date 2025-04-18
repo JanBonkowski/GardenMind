@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using GardenMind.Persistence;
+using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace GardenMind.API.Tests
 {
@@ -15,6 +16,11 @@ namespace GardenMind.API.Tests
                 BaseAddress = new Uri("https://localhost"),
                 AllowAutoRedirect = true
             };
+
+            using var scope = _factory.Services.CreateScope();
+            using var ctx = scope.ServiceProvider.GetService<GardenDbContext>();
+            ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureCreated();
         }
 
         public HttpClient Client => _factory.CreateClient(_options);
