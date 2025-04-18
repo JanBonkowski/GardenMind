@@ -34,6 +34,7 @@ builder.Services.AddDbContext<GardenDbContext>((services, ctx) =>
 });
 
 builder.Services.AddScoped<QuerySpecies>();
+builder.Services.AddScoped<SpeciesCreator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
