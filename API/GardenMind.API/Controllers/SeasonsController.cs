@@ -10,13 +10,16 @@ namespace GardenMind.API.Controllers
     {
         private readonly ILogger<SeasonsController> _logger;
         private readonly SeasonCreator _seasonCreator;
+        private readonly SeasonStarter _seasonStarter;
 
         public SeasonsController(
             ILogger<SeasonsController> logger,
-            SeasonCreator seasonCreator)
+            SeasonCreator seasonCreator,
+            SeasonStarter seasonStarter)
         {
             _logger = logger;
             _seasonCreator = seasonCreator;
+            _seasonStarter = seasonStarter;
         }
 
         [HttpPost]
@@ -25,7 +28,14 @@ namespace GardenMind.API.Controllers
             _logger.LogInformation("Attempting to create a new season");
             var newSeasonId = await _seasonCreator.Create(request, cancellationToken);
 
-            return Created("api/seasons/", newSeasonId);
+            return Created($"api/seasons/{newSeasonId}", newSeasonId);
+        }
+
+        [HttpPut("started")]
+        public async Task StartSeason([FromBody] StartSeasonRequest request, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Attempting to start a new season");
+            await _seasonStarter.StartSeason(request, cancellationToken);
         }
     }
 }
