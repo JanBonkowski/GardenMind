@@ -25,7 +25,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --logger "trx;LogFileName=reports/test-results.trx" --filter "FullyQualifiedName!~API.Tests"
+      run: dotnet test --no-build --logger "trx;LogFileName=reports/test-results.trx"
     # - name: TestReport
     #   uses: dorny/test-reporter@v2
     #   if: success() || failure()    # run this step even if previous step failed
