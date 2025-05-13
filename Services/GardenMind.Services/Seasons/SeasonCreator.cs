@@ -17,7 +17,7 @@ public class SeasonCreator
 
     public async Task<int> Create(CreateSeasonRequest request, CancellationToken cancellationToken = default)
     {
-        var anySeasonsPending = await _ctx.Seasons.AnyAsync(x => !x.TerminatedAt.HasValue);
+        var anySeasonsPending = await _ctx.Seasons.AnyAsync(x => x.StartedAt.HasValue && !x.TerminatedAt.HasValue);
         if (anySeasonsPending)
         {
             throw new SeasonPendingException();
