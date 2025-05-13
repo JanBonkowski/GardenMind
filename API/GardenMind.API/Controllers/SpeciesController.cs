@@ -10,13 +10,13 @@ namespace GardenMind.API.Controllers
     public class SpeciesController : ControllerBase
     {
         private readonly ILogger<SpeciesController> _logger;
-        private readonly QuerySpecies _querySpecies;
-        private readonly SpeciesCreator _speciesCreator;
+        private readonly IQuerySpecies _querySpecies;
+        private readonly ICreateSpecies _speciesCreator;
 
         public SpeciesController(
-            ILogger<SpeciesController> logger, 
-            QuerySpecies querySpecies,
-            SpeciesCreator speciesCreator)
+            ILogger<SpeciesController> logger,
+            IQuerySpecies querySpecies,
+            ICreateSpecies speciesCreator)
         {
             _logger = logger;
             _querySpecies = querySpecies;

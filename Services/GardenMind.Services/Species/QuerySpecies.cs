@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GardenMind.Services.Species;
 
-public class QuerySpecies
+public class QuerySpecies : IQuerySpecies
 {
     private readonly GardenDbContext _ctx;
 

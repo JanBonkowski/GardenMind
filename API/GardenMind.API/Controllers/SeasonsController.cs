@@ -9,13 +9,13 @@ namespace GardenMind.API.Controllers
     public class SeasonsController : ControllerBase
     {
         private readonly ILogger<SeasonsController> _logger;
-        private readonly SeasonCreator _seasonCreator;
-        private readonly SeasonStarter _seasonStarter;
+        private readonly ICreateSeasons _seasonCreator;
+        private readonly IStartSeasons _seasonStarter;
 
         public SeasonsController(
             ILogger<SeasonsController> logger,
-            SeasonCreator seasonCreator,
-            SeasonStarter seasonStarter)
+            ICreateSeasons seasonCreator,
+            IStartSeasons seasonStarter)
         {
             _logger = logger;
             _seasonCreator = seasonCreator;
