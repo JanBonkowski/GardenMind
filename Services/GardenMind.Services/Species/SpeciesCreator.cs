@@ -3,7 +3,7 @@ using GardenMind.Services.Species.Models;
 
 namespace GardenMind.Services.Species;
 
-public class SpeciesCreator : ISpeciesCreator
+public class SpeciesCreator : ICreateSpecies
 {
     private readonly GardenDbContext _ctx;
 
