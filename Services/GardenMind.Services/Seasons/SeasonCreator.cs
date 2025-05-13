@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GardenMind.Services.Seasons;
 
-public class SeasonCreator
+public class SeasonCreator : ICreateSeasons
 {
     private readonly GardenDbContext _ctx;
 
