@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GardenMind.Services.Seasons
 {
-    public class SeasonStarter
+    public class SeasonStarter : IStartSeasons
     {
         private readonly GardenDbContext _ctx;
 

@@ -34,11 +34,11 @@ builder.Services.AddDbContext<GardenDbContext>((services, ctx) =>
     ctx.UseNpgsql(connectionStringBuilder.ConnectionString);
 });
 
-builder.Services.AddScoped<QuerySpecies>();
-builder.Services.AddScoped<SpeciesCreator>();
+builder.Services.AddScoped<IQuerySpecies, QuerySpecies>();
+builder.Services.AddScoped<ICreateSpecies, SpeciesCreator>();
 
-builder.Services.AddScoped<SeasonCreator>();
-builder.Services.AddScoped<SeasonStarter>();
+builder.Services.AddScoped<ICreateSeasons, SeasonCreator>();
+builder.Services.AddScoped<IStartSeasons, SeasonStarter>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
