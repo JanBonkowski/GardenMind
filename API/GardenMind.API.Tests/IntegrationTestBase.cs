@@ -8,6 +8,8 @@ namespace GardenMind.API.Tests
         private readonly GardenWebApplicationFactory _factory;
         private readonly WebApplicationFactoryClientOptions _options;
 
+        protected IServiceScope ServiceScope;
+
         protected IntegrationTestBase()
         {
             _factory = new GardenWebApplicationFactory();
@@ -17,14 +19,11 @@ namespace GardenMind.API.Tests
                 AllowAutoRedirect = true
             };
 
-            using var scope = _factory.Services.CreateScope();
-            using var ctx = scope.ServiceProvider.GetService<GardenDbContext>();
-            ctx.Database.EnsureDeleted();
-            ctx.Database.EnsureCreated();
+            ServiceScope = _factory.Services.CreateScope();
         }
 
         public HttpClient Client => _factory.CreateClient(_options);
 
-        
+        protected GardenDbContext Context() => ServiceScope.ServiceProvider.GetService<GardenDbContext>()!;
     }
 }

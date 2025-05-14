@@ -38,4 +38,9 @@ public class SeasonsTestingUtils
         }
         return season;
     }
+    public static void SetRandomId(Season season)
+    {
+        var field = typeof(Season).GetProperty(nameof(Season.Id));
+        field!.SetValue(season, Random.Shared.Next(0, 100));
+    }
 }
