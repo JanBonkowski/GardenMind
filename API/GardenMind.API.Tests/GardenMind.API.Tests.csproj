@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GardenMind.SharedTest\GardenMind.SharedTest.csproj" />
     <ProjectReference Include="..\GardenMind.API\GardenMind.API.csproj" />
   </ItemGroup>
 

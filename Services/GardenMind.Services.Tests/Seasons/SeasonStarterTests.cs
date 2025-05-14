@@ -26,20 +26,14 @@ namespace GardenMind.Services.Tests.Seasons
             _sut = new SeasonStarter(_ctx.Object);
         }
 
-        private void SetRandomId(Season season)
-        {
-            var field = typeof(Season).GetProperty(nameof(Season.Id));
-            field!.SetValue(season, Random.Shared.Next(0, 100));
-        }
-
         [Test]
         public async Task Can_Not_Start_Two_Seasons_Simultaneously()
         {
             // given
             var startedSeason = SeasonsTestingUtils.NewStartedSeason();
-            SetRandomId(startedSeason);
+            SeasonsTestingUtils.SetRandomId(startedSeason);
             var seasonToBeStarted = SeasonsTestingUtils.NewPlannedSeason();
-            SetRandomId(seasonToBeStarted);
+            SeasonsTestingUtils.SetRandomId(seasonToBeStarted);
             _seasons.AddRange([startedSeason, seasonToBeStarted]);
             var request = new StartSeasonRequest(seasonToBeStarted.Id);
 
@@ -55,7 +49,7 @@ namespace GardenMind.Services.Tests.Seasons
         {
             // given
             var seasonToBeStarted = SeasonsTestingUtils.NewPlannedSeason();
-            SetRandomId(seasonToBeStarted);
+            SeasonsTestingUtils.SetRandomId(seasonToBeStarted);
             _seasons.Add(seasonToBeStarted);
             _ctx.Setup(x => x.Seasons.FindAsync(seasonToBeStarted.Id, It.IsAny<CancellationToken>()))
                 .Returns(() => ValueTask.FromResult(seasonToBeStarted));

@@ -11,15 +11,18 @@ namespace GardenMind.API.Controllers
         private readonly ILogger<SeasonsController> _logger;
         private readonly ICreateSeasons _seasonCreator;
         private readonly IStartSeasons _seasonStarter;
+        private readonly ITerminateSeasons _seasonTerminator;
 
         public SeasonsController(
             ILogger<SeasonsController> logger,
             ICreateSeasons seasonCreator,
-            IStartSeasons seasonStarter)
+            IStartSeasons seasonStarter,
+            ITerminateSeasons seasonTerminator)
         {
             _logger = logger;
             _seasonCreator = seasonCreator;
             _seasonStarter = seasonStarter;
+            _seasonTerminator = seasonTerminator;
         }
 
         [HttpPost]
@@ -36,6 +39,14 @@ namespace GardenMind.API.Controllers
         {
             _logger.LogInformation("Attempting to start a new season");
             await _seasonStarter.StartSeason(request, cancellationToken);
+        }
+
+        [HttpPut("terminated")]
+        public async Task<IResult> TerminateSeason([FromRoute] TerminateSeasonRequest request, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Attempting to terminate a seson with id {id}", request.Id);
+            await _seasonTerminator.TerminateSeason(request, cancellationToken);
+            return Results.NoContent();
         }
     }
 }

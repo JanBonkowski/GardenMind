@@ -39,6 +39,7 @@ builder.Services.AddScoped<ICreateSpecies, SpeciesCreator>();
 
 builder.Services.AddScoped<ICreateSeasons, SeasonCreator>();
 builder.Services.AddScoped<IStartSeasons, SeasonStarter>();
+builder.Services.AddScoped<ITerminateSeasons, SeasonTerminator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
